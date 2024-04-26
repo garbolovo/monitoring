@@ -1,0 +1,18 @@
+version: '3'
+services:
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.49.1
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - "8081:8080"
+    privileged: true
+    networks:
+      - prometheus_default
+
+networks:
+  prometheus_default:
+    external: true
