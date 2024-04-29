@@ -1,10 +1,9 @@
-# monitoring
+# Monitoring portal
+### Monitoging tools that can be used to monitor your infrastructure
+Tools:
+- Grafana
+- Zabbix
+- Prometheus
+- Node Exporter
+- cAdvisor
 
-## Made remote repository on the my remote server
-``
-git remote add deploy deploy@80.90.178.17:/var/git/monitoring.git
-``
-
-*this is project*
-
-monitoring page 
