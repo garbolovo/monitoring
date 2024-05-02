@@ -44,6 +44,7 @@ services:
 
   logstash:
     image: logstash:7.13.4
+    command: ["-e", "sleep 9999999"]
     volumes:
     - /var/www/html/log_analysis/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
     - /var/www/html/log_analysis/logstash/pipeline:/usr/share/logstash/pipeline
