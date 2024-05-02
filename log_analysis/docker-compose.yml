@@ -33,6 +33,8 @@ services:
       - elastic
   opensearch-dashboards:
     image: opensearchproject/opensearch-dashboards:latest
+    environment:
+      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'  # Указывает на сервис opensearch в Docker Compose
     ports:
       - "5601:5601"
     networks:
