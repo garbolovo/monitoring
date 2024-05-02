@@ -43,24 +43,24 @@ services:
   logstash:
     image: logstash:7.8.0
     volumes:
-      - logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - logstash/pipeline:/usr/share/logstash/pipeline
+    - /var/www/html/log_analysis/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+    - /var/www/html/log_analysis/logstash/pipeline:/usr/share/logstash/pipeline
     ports:
-      - "5000:5000"
+    - "5000:5000"
     networks:
-      - elastic
+    - elastic
     depends_on:
-      - opensearch
+    - opensearch
 
   filebeat:
     image: elastic/filebeat:7.8.0
     volumes:
-      - filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - /var/log:/var/log
+    - /var/www/html/log_analysis/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+    - /var/log:/var/log
     networks:
-      - elastic
+    - elastic
     depends_on:
-      - logstash
+    - logstash
 
 networks:
   elastic:
