@@ -3,7 +3,6 @@ cluster.name: docker-cluster
 
 # Bind to all interfaces because we don't know what IP address Docker will assign to us.
 network.host: 0.0.0.0
-network.host: 0.0.0.0
 http.port: 9200  # Указание порта, на котором OpenSearch будет принимать HTTP-запросы
 # # minimum_master_nodes need to be explicitly set when bound on a public IP
 # # set to 1 to allow single node clusters
