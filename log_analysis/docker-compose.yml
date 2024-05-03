@@ -67,5 +67,5 @@ services:
     - logstash
 
 networks:
-  elastic:
+  log_analysis_elastic:
     driver: bridge
