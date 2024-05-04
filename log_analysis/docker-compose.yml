@@ -18,7 +18,7 @@ services:
       - zookeeper
   opensearch:
     image: opensearchproject/opensearch:latest
-    volumes:
+    #volumes:
       #- /var/www/html/log_analysis/opensearch/opensearch.yml:/usr/share/opensearch/config/opensearch.yml
     environment:
       - discovery.type=single-node
