@@ -14,14 +14,14 @@ http.port: 9200  # Указание порта, на котором OpenSearch �
 
 ######## Start OpenSearch Security Demo Configuration ########
 # WARNING: revise all the lines below before you go into production
-plugins.security.ssl.transport.pemcert_filepath: esnode.pem
-plugins.security.ssl.transport.pemkey_filepath: esnode-key.pem
-plugins.security.ssl.transport.pemtrustedcas_filepath: root-ca.pem
-plugins.security.ssl.transport.enforce_hostname_verification: false
-plugins.security.ssl.http.enabled: true
-plugins.security.ssl.http.pemcert_filepath: esnode.pem
-plugins.security.ssl.http.pemkey_filepath: esnode-key.pem
-plugins.security.ssl.http.pemtrustedcas_filepath: root-ca.pem
+#plugins.security.ssl.transport.pemcert_filepath: esnode.pem
+#plugins.security.ssl.transport.pemkey_filepath: esnode-key.pem
+#plugins.security.ssl.transport.pemtrustedcas_filepath: root-ca.pem
+#plugins.security.ssl.transport.enforce_hostname_verification: false
+plugins.security.ssl.http.enabled: false
+#plugins.security.ssl.http.pemcert_filepath: esnode.pem
+#plugins.security.ssl.http.pemkey_filepath: esnode-key.pem
+#plugins.security.ssl.http.pemtrustedcas_filepath: root-ca.pem
 plugins.security.allow_unsafe_democertificates: true
 plugins.security.allow_default_init_securityindex: true
 plugins.security.authcz.admin_dn: ['CN=kirk,OU=client,O=client,L=test,C=de']
