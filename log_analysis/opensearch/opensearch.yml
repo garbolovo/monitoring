@@ -3,7 +3,7 @@ network.host: 0.0.0.0
 http.port: 9200
 
 # Security settings
-plugins.security.ssl.transport.enabled: false
+plugins.security.ssl.transport.enabled: true
 plugins.security.ssl.http.enabled: false
 plugins.security.allow_unsafe_democertificates: true
 plugins.security.allow_default_init_securityindex: true
@@ -16,3 +16,9 @@ plugins.security.restapi.roles_enabled: ["all_access", "security_rest_api_access
 plugins.security.system_indices.enabled: true
 plugins.security.system_indices.indices: [".plugins-ml-*", ".opendistro-*", ".opensearch-*"]
 node.max_local_storage_nodes: 3
+
+# SSL settings for transport
+plugins.security.ssl.transport.pemcert_filepath: /usr/share/opensearch/config/certs/esnode.pem
+plugins.security.ssl.transport.pemkey_filepath: /usr/share/opensearch/config/certs/esnode-key.pem
+plugins.security.ssl.transport.pemtrustedcas_filepath: /usr/share/opensearch/config/certs/root-ca.pem
+plugins.security.ssl.transport.enforce_hostname_verification: false

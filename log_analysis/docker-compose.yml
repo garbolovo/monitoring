@@ -29,6 +29,7 @@ services:
     image: opensearchproject/opensearch:latest
     volumes:
       - /var/www/html/log_analysis/opensearch/opensearch.yml:/usr/share/opensearch/config/opensearch.yml
+      - /var/www/html/log_analysis/opensearch/certs:/usr/share/opensearch/config/certs
     environment:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
