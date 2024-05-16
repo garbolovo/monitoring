@@ -6,7 +6,6 @@ services:
       - "2181:2181"
     networks:
       - elastic
-
   kafka:
     image: wurstmeister/kafka
     ports:
@@ -24,9 +23,8 @@ services:
       - zookeeper
     networks:
       - elastic
-
   opensearch:
-    image: opensearchproject/opensearch:latest
+    build: .
     volumes:
       - /var/www/html/log_analysis/opensearch/opensearch.yml:/usr/share/opensearch/config/opensearch.yml
       - /var/www/html/log_analysis/opensearch/certs:/usr/share/opensearch/config/certs
@@ -44,8 +42,6 @@ services:
       - "9600:9600"
     networks:
       - elastic
-    command: ["sh", "-c", "env && /usr/local/bin/docker-entrypoint.sh"]
-
   opensearch-dashboards:
     image: opensearchproject/opensearch-dashboards:latest
     environment:
@@ -56,30 +52,27 @@ services:
       - elastic
     depends_on:
       - opensearch
-
   logstash:
     image: logstash:7.13.4
     volumes:
-    - /var/www/html/log_analysis/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-    - /var/www/html/log_analysis/logstash/pipeline:/usr/share/logstash/pipeline
+      - /var/www/html/log_analysis/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - /var/www/html/log_analysis/logstash/pipeline:/usr/share/logstash/pipeline
     ports:
-    - "5000:5000"
+      - "5000:5000"
     networks:
-    - elastic
+      - elastic
     depends_on:
-    - opensearch
-
+      - opensearch
   filebeat:
     image: elastic/filebeat:7.8.0
     user: "0:0"
     volumes:
-    - /var/www/html/log_analysis/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-    - /var/log:/var/log
+      - /var/www/html/log_analysis/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - /var/log:/var/log
     networks:
-    - elastic
+      - elastic
     depends_on:
-    - logstash
-
+      - logstash
 networks:
   elastic:
     driver: bridge
