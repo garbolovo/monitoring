@@ -22,3 +22,6 @@ plugins.security.ssl.transport.pemcert_filepath: /usr/share/opensearch/config/ce
 plugins.security.ssl.transport.pemkey_filepath: /usr/share/opensearch/config/certs/esnode-key.pem
 plugins.security.ssl.transport.pemtrustedcas_filepath: /usr/share/opensearch/config/certs/root-ca.pem
 plugins.security.ssl.transport.enforce_hostname_verification: false
+
+# Discovery settings
+discovery.type: single-node
